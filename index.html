@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FlowPilot — Smart analytics SaaS dashboard. Monitor growth, automate reporting, and track performance with AI-powered insights." />
+  <meta name="theme-color" content="#080d1a" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="FlowPilot | Smart Analytics SaaS" />
+  <meta property="og:description" content="Turn business data into decisions faster with FlowPilot." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://flow-pilot-landing.netlify.app/og-image.png" />
+
+  <title>FlowPilot | Smart Analytics SaaS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Cursor ─────────────────────────────── -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ── Announcement Bar ───────────────────── -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="container announcement-inner">
+      <span class="ann-dot"></span>
+      <p>🚀 New: AI-powered weekly insights now available on all Pro plans.</p>
+      <a href="#pricing">View plans →</a>
+    </div>
+    <button class="ann-close" id="annClose" aria-label="Close announcement">✕</button>
+  </div>
+
+  <!-- ── Header ─────────────────────────────── -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrapper">
+      <a href="#home" class="logo">Flow<span>Pilot</span></a>
+
+      <nav class="nav" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="#features" data-hover="Features">Features</a>
+        <a href="#dashboard" data-hover="Dashboard">Dashboard</a>
+        <a href="#pricing" data-hover="Pricing">Pricing</a>
+        <a href="#reviews" data-hover="Reviews">Reviews</a>
+        <a href="#faq" data-hover="FAQ">FAQ</a>
+        <a href="#contact" data-hover="Contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light mode">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <a href="#pricing" class="btn btn-ghost">Log in</a>
+        <a href="#pricing" class="btn btn-primary">Start Free <span class="btn-arrow">→</span></a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Hero ───────────────────────────────── -->
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow reveal-item" style="--d:0ms">
+            <span class="eyebrow-dot"></span>
+            Trusted by 18,000+ teams worldwide
+          </div>
+          <h1 class="reveal-item" style="--d:100ms">
+            Turn business data<br/>
+            <span class="gradient-text">into decisions</span><br/>
+            faster.
+          </h1>
+          <p class="hero-sub reveal-item" style="--d:200ms">
+            FlowPilot helps teams monitor growth, automate reporting, and track performance
+            with a powerful dashboard designed for clarity and smarter planning.
+          </p>
+          <div class="hero-actions reveal-item" style="--d:300ms">
+            <a href="#pricing" class="btn btn-primary btn-lg">
+              Start Free Trial
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href="#dashboard" class="btn btn-ghost btn-lg">
+              <span class="play-icon">▶</span> Watch demo
+            </a>
+          </div>
+          <div class="hero-proof reveal-item" style="--d:400ms">
+            <div class="avatars">
+              <span class="av av-1">E</span>
+              <span class="av av-2">D</span>
+              <span class="av av-3">S</span>
+              <span class="av av-4">M</span>
+            </div>
+            <p><strong>4.9/5</strong> from 2,400+ reviews · No credit card required</p>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-item" style="--d:200ms">
+          <div class="dashboard-card float-card">
+            <div class="window-bar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="window-title">FlowPilot Dashboard</span>
+            </div>
+
+            <div class="dash-header-row">
+              <div>
+                <p class="dash-label">Weekly Revenue</p>
+                <h3 class="dash-value">$84,240</h3>
+              </div>
+              <span class="badge badge-success">↑ 12.4%</span>
+            </div>
+
+            <div class="chart-wrap">
+              <div class="chart-bars" id="heroBars">
+                <div class="bar" data-h="48"></div>
+                <div class="bar" data-h="72"></div>
+                <div class="bar" data-h="66"></div>
+                <div class="bar" data-h="84"></div>
+                <div class="bar" data-h="60"></div>
+                <div class="bar bar-active" data-h="96"></div>
+                <div class="bar" data-h="74"></div>
+              </div>
+              <div class="chart-labels">
+                <span>Mon</span><span>Tue</span><span>Wed</span>
+                <span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+              </div>
+            </div>
+
+            <div class="dash-metrics">
+              <div class="dash-metric-card">
+                <p>New Leads</p>
+                <strong>1,284</strong>
+                <span class="trend up">+9.2%</span>
+              </div>
+              <div class="dash-metric-card">
+                <p>Conversions</p>
+                <strong>326</strong>
+                <span class="trend up">+4.1%</span>
+              </div>
+              <div class="dash-metric-card">
+                <p>Churn</p>
+                <strong>2.4%</strong>
+                <span class="trend down">-0.6%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating badges -->
+          <div class="float-badge badge-tl reveal-item" style="--d:600ms">
+            <span class="badge-icon">🤖</span>
+            <div><strong>AI Summary ready</strong><span>Weekly report generated</span></div>
+          </div>
+          <div class="float-badge badge-br reveal-item" style="--d:700ms">
+            <span class="badge-icon">⚡</span>
+            <div><strong>Real-time sync</strong><span>Last updated 2 min ago</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats strip -->
+      <div class="container">
+        <div class="hero-stats reveal-item" style="--d:500ms">
+          <div class="h-stat"><strong>18k+</strong><span>Active users</span></div>
+          <div class="h-stat-divider"></div>
+          <div class="h-stat"><strong>99.9%</strong><span>Uptime SLA</span></div>
+          <div class="h-stat-divider"></div>
+          <div class="h-stat"><strong>340+</strong><span>Teams onboarded</span></div>
+          <div class="h-stat-divider"></div>
+          <div class="h-stat"><strong>4.9★</strong><span>Customer rating</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Brand Strip ─────────────────────────── -->
+    <section class="brand-strip">
+      <div class="container">
+        <p class="brand-label reveal">Trusted by fast-growing teams at</p>
+        <div class="brand-scroll-wrap">
+          <div class="brand-track">
+            <span>NovaTech</span>
+            <span>Orbit Labs</span>
+            <span>MetricHaus</span>
+            <span>CloudAxis</span>
+            <span>PeakStack</span>
+            <span>Velocity IO</span>
+            <span>NovaTech</span>
+            <span>Orbit Labs</span>
+            <span>MetricHaus</span>
+            <span>CloudAxis</span>
+            <span>PeakStack</span>
+            <span>Velocity IO</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Features ────────────────────────────── -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Core Features</span>
+          <h2>Everything your team needs<br/>in one focused workspace</h2>
+          <p>Built for founders, product teams, and growth marketers who need fast insights and cleaner workflows.</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card reveal" style="--ci:0">
+            <div class="feature-card-inner">
+              <div class="icon-box">📊</div>
+              <h3>Live analytics</h3>
+              <p>Track revenue, customer activity, campaign results, and product trends in real time with sub-second updates.</p>
+              <div class="feature-glow"></div>
+            </div>
+          </article>
+          <article class="feature-card reveal" style="--ci:1">
+            <div class="feature-card-inner">
+              <div class="icon-box">🤖</div>
+              <h3>AI-powered insights</h3>
+              <p>Receive smart weekly summaries and predictive alerts — no manual reporting, no missed patterns.</p>
+              <div class="feature-glow"></div>
+            </div>
+          </article>
+          <article class="feature-card reveal" style="--ci:2">
+            <div class="feature-card-inner">
+              <div class="icon-box">🔐</div>
+              <h3>Secure access</h3>
+              <p>Role-based permissions, SSO support, and encrypted sessions keep your business data safe at every layer.</p>
+              <div class="feature-glow"></div>
+            </div>
+          </article>
+          <article class="feature-card reveal" style="--ci:3">
+            <div class="feature-card-inner">
+              <div class="icon-box">⚡</div>
+              <h3>Fast onboarding</h3>
+              <p>Go from signup to your first insight in under 5 minutes. Clean setup, zero configuration headaches.</p>
+              <div class="feature-glow"></div>
+            </div>
+          </article>
+          <article class="feature-card reveal" style="--ci:4">
+            <div class="feature-card-inner">
+              <div class="icon-box">📁</div>
+              <h3>Export reports</h3>
+              <p>Generate polished PDF and CSV reports for team reviews, leadership updates, and client communication.</p>
+              <div class="feature-glow"></div>
+            </div>
+          </article>
+          <article class="feature-card reveal" style="--ci:5">
+            <div class="feature-card-inner">
+              <div class="icon-box">🔄</div>
+              <h3>Team collaboration</h3>
+              <p>Share dashboards, annotate metrics, and align your team around one source of truth — in seconds.</p>
+              <div class="feature-glow"></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Dashboard Showcase ──────────────────── -->
+    <section class="section dashboard-section" id="dashboard">
+      <div class="container dashboard-grid">
+        <div class="dashboard-copy reveal">
+          <span class="eyebrow">Dashboard Experience</span>
+          <h2>A polished interface built for speed and visibility</h2>
+          <p>Strong visual hierarchy makes trends, key metrics, and team activity easy to read in seconds — not minutes.</p>
+          <ul class="feature-list">
+            <li>Custom KPI cards with clear trend indicators</li>
+            <li>Weekly and monthly performance charts</li>
+            <li>Task visibility and simplified reporting flow</li>
+            <li>Fully responsive for desktop and tablet</li>
+          </ul>
+          <a href="#pricing" class="btn btn-primary" style="margin-top:28px;display:inline-flex;">Explore the dashboard →</a>
+        </div>
+
+        <div class="dashboard-ui reveal">
+          <div class="dash-showcase-card">
+            <div class="panel-top-row">
+              <div>
+                <p class="dash-label">Performance Overview</p>
+                <h3>Growth Dashboard</h3>
+              </div>
+              <span class="badge badge-neutral">Live</span>
+            </div>
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <p>MRR</p>
+                <strong>$42,800</strong>
+                <span class="trend up">+8.2%</span>
+              </div>
+              <div class="kpi-card">
+                <p>Churn</p>
+                <strong>2.4%</strong>
+                <span class="trend down">-0.6%</span>
+              </div>
+              <div class="kpi-card">
+                <p>ARPU</p>
+                <strong>$124</strong>
+                <span class="trend up">+4.1%</span>
+              </div>
+              <div class="kpi-card">
+                <p>Active Trials</p>
+                <strong>218</strong>
+                <span class="trend up">+11.3%</span>
+              </div>
+            </div>
+            <div class="progress-card">
+              <div class="progress-row">
+                <span>Customer onboarding</span>
+                <strong>78%</strong>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width:78%"></div>
+              </div>
+            </div>
+            <div class="progress-card" style="margin-top:12px">
+              <div class="progress-row">
+                <span>Feature adoption</span>
+                <strong>61%</strong>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill accent2" style="width:61%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Metrics Counters ────────────────────── -->
+    <section class="section metrics-section">
+      <div class="container">
+        <div class="metrics-grid">
+          <div class="stat-card reveal"><strong data-count="18000">0</strong><span>Users onboarded</span></div>
+          <div class="stat-card reveal"><strong data-count="340">0</strong><span>Teams using FlowPilot</span></div>
+          <div class="stat-card reveal"><strong data-count="99">0</strong><span>Customer retention %</span></div>
+          <div class="stat-card reveal"><strong data-count="24">0</strong><span>Integrations available</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Pricing ─────────────────────────────── -->
+    <section class="section pricing-section" id="pricing">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Flexible Pricing</span>
+          <h2>Simple plans for growing teams</h2>
+          <p>Choose a package based on your stage, reporting needs, and team size.</p>
+        </div>
+
+        <!-- Billing toggle -->
+        <div class="billing-toggle reveal" id="billingToggle">
+          <span class="bill-label" id="billMonthly">Monthly</span>
+          <button class="toggle-track" id="toggleBtn" role="switch" aria-checked="false" aria-label="Switch to annual billing">
+            <span class="toggle-thumb"></span>
+          </button>
+          <span class="bill-label" id="billAnnual">Annual <span class="save-badge">Save 20%</span></span>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="pricing-card reveal">
+            <p class="plan-name">Starter</p>
+            <div class="price-display">
+              <h3 class="price-val" data-monthly="19" data-annual="15">$19<span>/mo</span></h3>
+            </div>
+            <p class="plan-text">Best for early-stage teams testing a new analytics workflow.</p>
+            <ul>
+              <li>Up to 3 team members</li>
+              <li>Basic dashboards</li>
+              <li>Email reports</li>
+              <li>Community support</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost full-width">Choose Starter</a>
+          </article>
+
+          <article class="pricing-card featured reveal">
+            <span class="featured-tag">Most Popular</span>
+            <p class="plan-name">Pro</p>
+            <div class="price-display">
+              <h3 class="price-val" data-monthly="49" data-annual="39">$49<span>/mo</span></h3>
+            </div>
+            <p class="plan-text">Ideal for scaling businesses that need deeper insight and collaboration.</p>
+            <ul>
+              <li>Unlimited dashboards</li>
+              <li>AI weekly summaries</li>
+              <li>Priority support</li>
+              <li>Advanced exports</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary full-width">Choose Pro</a>
+          </article>
+
+          <article class="pricing-card reveal">
+            <p class="plan-name">Enterprise</p>
+            <div class="price-display">
+              <h3 class="price-custom">Custom</h3>
+            </div>
+            <p class="plan-text">For larger teams needing compliance, integrations, and custom onboarding.</p>
+            <ul>
+              <li>Dedicated success manager</li>
+              <li>Custom reporting</li>
+              <li>SSO and security controls</li>
+              <li>Enterprise onboarding</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost full-width">Talk to Sales</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Testimonials ────────────────────────── -->
+    <section class="section testimonials-section" id="reviews">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Customer Feedback</span>
+          <h2>Teams trust FlowPilot to simplify<br/>decision-making</h2>
+        </div>
+
+        <div class="testimonials-carousel reveal" id="testimonialsCarousel">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <article class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p>"FlowPilot replaced three disconnected reporting tools for us. The dashboard is clean, the setup was quick, and our weekly review process is far more efficient now."</p>
+              <div class="testimonial-author">
+                <span class="av av-1">E</span>
+                <div><strong>Emma Lewis</strong><span>Head of Growth, NovaTech</span></div>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p>"We needed a platform our non-technical team could actually use. This solved that problem completely. The visual layout is one of the best parts of the experience."</p>
+              <div class="testimonial-author">
+                <span class="av av-2">D</span>
+                <div><strong>Daniel Brooks</strong><span>Operations Lead, Orbit Labs</span></div>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p>"The AI summaries and KPI cards save hours every week. It feels polished, fast, and clearly designed with real teams in mind. Best analytics tool we've used."</p>
+              <div class="testimonial-author">
+                <span class="av av-3">S</span>
+                <div><strong>Sophia Martin</strong><span>Product Manager, CloudAxis</span></div>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p>"Onboarding took less than 10 minutes. Within a week, our entire team was using it daily. The export feature alone saves us 3 hours per reporting cycle."</p>
+              <div class="testimonial-author">
+                <span class="av av-4">M</span>
+                <div><strong>Marcus Chen</strong><span>CEO, PeakStack</span></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="prevBtn" aria-label="Previous testimonial">←</button>
+            <div class="carousel-dots" id="carouselDots"></div>
+            <button class="carousel-btn" id="nextBtn" aria-label="Next testimonial">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ─────────────────────────────────── -->
+    <section class="section faq-section" id="faq">
+      <div class="container faq-container">
+        <div class="section-header reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Questions teams usually ask<br/>before getting started</h2>
+        </div>
+
+        <!-- FAQ Search -->
+        <div class="faq-search reveal">
+          <span class="faq-search-icon">🔍</span>
+          <input type="text" id="faqSearch" placeholder="Search questions..." autocomplete="off" />
+          <button class="faq-clear" id="faqClear" aria-label="Clear search">✕</button>
+        </div>
+
+        <div class="faq-grid" id="faqGrid">
+          <article class="faq-item reveal" data-q="small teams starter">
+            <button class="faq-btn">
+              <span>Is this suitable for small teams?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Yes. The Starter and Pro plans are designed for small and mid-sized teams that need clean analytics without complexity. You can start with 1 member and scale up anytime.</p></div>
+          </article>
+          <article class="faq-item reveal" data-q="export reports clients managers pdf">
+            <button class="faq-btn">
+              <span>Can I export reports for clients or managers?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Yes. You can generate polished PDF and CSV reports for presentations, stakeholders, or client communication workflows. Pro and Enterprise plans include advanced export templates.</p></div>
+          </article>
+          <article class="faq-item reveal" data-q="collaboration share team comments">
+            <button class="faq-btn">
+              <span>Does FlowPilot support team collaboration?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Yes. Teams can share views, comment on metrics, and align around a common dashboard structure. Invite unlimited viewers on Pro and Enterprise plans.</p></div>
+          </article>
+          <article class="faq-item reveal" data-q="data secure privacy encryption">
+            <button class="faq-btn">
+              <span>How is my data protected?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We are SOC 2 Type II compliant and conduct quarterly security audits. Enterprise plans include custom data residency options.</p></div>
+          </article>
+          <article class="faq-item reveal" data-q="free trial cancel subscription">
+            <button class="faq-btn">
+              <span>Is there a free trial? Can I cancel anytime?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Yes to both. All plans include a 14-day free trial with no credit card required. You can cancel anytime with no questions asked — your data is exportable on cancellation.</p></div>
+          </article>
+          <article class="faq-item reveal" data-q="integrations connect tools slack notion">
+            <button class="faq-btn">
+              <span>What integrations does FlowPilot support?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>FlowPilot connects with 24+ tools including Slack, HubSpot, Stripe, Notion, Google Analytics, Salesforce, and more. All integrations are available on Pro and Enterprise plans.</p></div>
+          </article>
+        </div>
+
+        <div class="faq-no-results" id="faqNoResults" style="display:none">
+          <p>No questions found for "<span id="faqSearchTerm"></span>"</p>
+          <a href="#contact" class="btn btn-ghost">Ask us directly →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contact — Multi-step Form ──────────── -->
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <span class="eyebrow">Get Started</span>
+          <h2>Request a demo or ask about the right plan</h2>
+          <p>Fill out the form and our team will get back to you within one business day with a personalized recommendation.</p>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="contact-icon">✉️</span>
+              <div><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection#5f373a3333301f393330282f3633302b713630"><span class="__cf_email__" data-cfemail="5139343d3d3e11373d3e2621383d3e257f383e">[email&#160;protected]</span></a></span></div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">⏱️</span>
+              <div><strong>Response time</strong><span>Within one business day</span></div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">🎧</span>
+              <div><strong>Support</strong><span>Available for all active subscriptions</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper card reveal">
+          <!-- Step indicators -->
+          <div class="form-steps">
+            <div class="form-step active" data-step="1">
+              <span class="step-num">1</span>
+              <span class="step-label">You</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="form-step" data-step="2">
+              <span class="step-num">2</span>
+              <span class="step-label">Team</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="form-step" data-step="3">
+              <span class="step-num">3</span>
+              <span class="step-label">Goals</span>
+            </div>
+          </div>
+
+          <form id="contactForm" novalidate>
+            <!-- Step 1 -->
+            <div class="form-panel active" data-panel="1">
+              <h3>Tell us about yourself</h3>
+              <p>Let's start with the basics.</p>
+              <div class="field-group">
+                <label for="fname">Full Name *</label>
+                <input type="text" id="fname" name="name" placeholder="Emma Lewis" required autocomplete="name" />
+              </div>
+              <div class="field-group">
+                <label for="femail">Email Address *</label>
+                <input type="email" id="femail" name="email" placeholder="emma@company.com" required autocomplete="email" />
+              </div>
+              <div class="form-nav">
+                <button type="button" class="btn btn-primary form-next" data-next="2">Continue →</button>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="form-panel" data-panel="2">
+              <h3>About your team</h3>
+              <p>Help us understand your context.</p>
+              <div class="field-group">
+                <label for="fcompany">Company Name *</label>
+                <input type="text" id="fcompany" name="company" placeholder="Acme Corp" required />
+              </div>
+              <div class="field-group">
+                <label for="fsize">Team Size *</label>
+                <select id="fsize" name="size" required>
+                  <option value="">Select team size</option>
+                  <option value="1-5">1 – 5 people</option>
+                  <option value="6-20">6 – 20 people</option>
+                  <option value="21-50">21 – 50 people</option>
+                  <option value="50+">50+ people</option>
+                </select>
+              </div>
+              <div class="form-nav">
+                <button type="button" class="btn btn-ghost form-back" data-back="1">← Back</button>
+                <button type="button" class="btn btn-primary form-next" data-next="3">Continue →</button>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="form-panel" data-panel="3">
+              <h3>What do you want to achieve?</h3>
+              <p>This helps us recommend the right setup.</p>
+              <div class="field-group">
+                <label for="fgoal">Your main goal *</label>
+                <textarea id="fgoal" name="goal" placeholder="e.g. I want to track our MRR and automate weekly reporting for leadership..." required></textarea>
+              </div>
+              <div class="form-nav">
+                <button type="button" class="btn btn-ghost form-back" data-back="2">← Back</button>
+                <button type="submit" class="btn btn-primary">Send Request ✓</button>
+              </div>
+            </div>
+
+            <!-- Success -->
+            <div class="form-success" id="formSuccess" style="display:none">
+              <div class="success-icon">✅</div>
+              <h3>Request sent!</h3>
+              <p>We'll review your details and reach out within one business day with a personalized recommendation.</p>
+              <a href="#features" class="btn btn-ghost" style="margin-top:16px">Explore features →</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo footer-logo">Flow<span>Pilot</span></a>
+        <p>A modern SaaS analytics platform built to help teams move faster with cleaner data and smarter insights.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="GitHub">⌥</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="/cdn-cgi/l/email-protection#244c4148484b6442484b53544d484b500a4d4b"><span class="__cf_email__" data-cfemail="e68e838a8a89a6808a8991968f8a8992c88f89">[email&#160;protected]</span></a>
+        <p>Remote-first product team</p>
+        <p style="margin-top:8px;font-size:.88rem">© 2026 FlowPilot. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Back to Top ─────────────────────────── -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- ── Sticky CTA Bar ─────────────────────── -->
+  <div class="sticky-cta" id="stickyCta">
+    <p>Ready to get started? No credit card required.</p>
+    <a href="#pricing" class="btn btn-primary btn-sm">Start Free Trial →</a>
+    <button class="sticky-cta-close" id="stickyCtaClose" aria-label="Dismiss">✕</button>
+  </div>
+
+  <!-- ── Cookie Banner ──────────────────────── -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p>We use cookies to enhance your experience and analyze usage. <a href="#">Learn more</a></p>
+    <div class="cookie-actions">
+      <button class="cookie-btn" id="cookieAccept">Accept</button>
+      <button class="cookie-btn cookie-btn-outline" id="cookieDecline">Decline</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
