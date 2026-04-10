@@ -8,7 +8,7 @@ This project simulates a real-world analytics product interface, focusing on cle
 
 ## Live Demo
 
-https://flow-pilot-landing.netlify.app/
+https://flowpilot-landing.netlify.app/
 
 ---
 
